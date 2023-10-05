@@ -41,8 +41,15 @@ const skalaJawaban = ["Tidak Pernah", "Jarang", "Kadang-kadang", "Sering", "Sela
 function Diagnosa() {
     const [jawaban, setJawaban] = useState(Array(pertanyaanList.length).fill(null));
     const [hasil, setHasil] = useState(null);
+    const [solusi, setSolusi] = useState(null);
+    const [error, setError] = useState(null);
 
     const handleSubmit = () => {
+        if (jawaban.some(j => j === null)) {
+            setError("Silakan pilih jawaban untuk setiap pertanyaan.");
+            return;
+        }
+
         const nilaiSkala = {
             "Tidak Pernah": 1,
             "Jarang": 2,
@@ -54,14 +61,18 @@ function Diagnosa() {
         const totalSkor = jawaban.reduce((acc, val) => acc + nilaiSkala[val], 0);
         const skorMax = 5 * pertanyaanList.length;
 
-        if (totalSkor >= skorMax * 0.8) {
+         if (totalSkor >= skorMax * 0.8) {
             setHasil('Depresi Berat');
+            setSolusi('Kami sarankan Anda segera konsultasi dengan ahli kesehatan mental.');
         } else if (totalSkor >= skorMax * 0.5) {
             setHasil('Depresi Menengah');
+            setSolusi('Pertimbangkan untuk berbicara dengan konselor atau terapis.');
         } else if (totalSkor >= skorMax * 0.2) {
             setHasil('Depresi Ringan');
+            setSolusi('Coba lakukan relaksasi dan aktivitas yang Anda sukai.');
         } else {
             setHasil('Tidak Depresi');
+            setSolusi('Tetap jaga kesehatan mental Anda.');
         }
     };
 
@@ -71,23 +82,24 @@ function Diagnosa() {
                 {/* form */}
                 <div className='bg-krim p-6 px-20 rounded-xl shadow-md'>
                     <h1 className='font-bold font-OpenSans text-3xl text-center mb-8 text-merahtua  '>Diagnosa Depresi</h1>
-                    {pertanyaanList.map((pertanyaan, index) => (
-                        <div className='text-lg mb-6 font-Poppins' key={index}>
-                            <p>{index + 1}. {pertanyaan}</p>
-                            {skalaJawaban.map((skala, sIndex) => (
-                                <label key={sIndex}>
-                                    <input
-                                        type="radio"
-                                        value={skala}
-                                        checked={jawaban[index] === skala}
-                                        onChange={() => setJawaban(prev => {
-                                            const newArr = [...prev];
-                                            newArr[index] = skala;
-                                            return newArr;
-                                        })}
-                                    /> {skala}
-                                </label>
-                            ))}
+            {error && <p className="text-red-500">{error}</p>}
+            
+            {pertanyaanList.map((pertanyaan, index) => (
+                <div key={index}>
+                    <p>{pertanyaan}</p>
+                    {skalaJawaban.map((skala, sIndex) => (
+                        <label key={sIndex}>
+                            <input 
+                                type="radio" 
+                                value={skala} 
+                                checked={jawaban[index] === skala}
+                                onChange={() => setJawaban(prev => {
+                                    const newArr = [...prev];
+                                    newArr[index] = skala;
+                                    return newArr;
+                                })}
+                            /> {skala}
+                        </label>
                             {/* <div id="form-wrapper">
                                 <form>
                                     <div id="diagnosis-slider">
@@ -103,15 +115,20 @@ function Diagnosa() {
 
                                 </form>
                             </div> */}
-
-                        </div>
                     ))}
-                    <button onClick={handleSubmit}>Cek Hasil</button>
-                    {hasil && <div className="hasil"><h2>Hasil: {hasil}</h2></div>}
                 </div>
-
+            ))}
+            
+            <button onClick={handleSubmit} className="bg-blue-500 text-white py-2 px-4 rounded mt-4">Cek Hasil</button>
+            
+            {hasil && (
+                <div className="hasil mt-4">
+                    <h2 className="text-lg font-bold">Hasil: {hasil}</h2>
+                    <p className="text-base font-semibold mt-2">{solusi}</p>
+                </div>
+            )}
+        </div>
             </div>
-
         </section>
     );
 }
