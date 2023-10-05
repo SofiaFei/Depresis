@@ -1,4 +1,4 @@
-// src/DiagnosaDepresi.js
+// src/Diagnosa.js
 
 import React, { useState } from 'react';
 
@@ -14,7 +14,7 @@ const pertanyaanList = [
 
 const skalaJawaban = ["Selalu", "Sering", "Kadang-kadang", "Jarang", "Tidak Pernah"];
 
-function DiagnosaDepresi() {
+function Diagnosa() {
     const [jawaban, setJawaban] = useState(Array(pertanyaanList.length).fill(null));
     const [hasil, setHasil] = useState(null);
 
@@ -42,7 +42,7 @@ function DiagnosaDepresi() {
     };
 
     return (
-        <div className="app" >
+        <div className="app bg-merah" >
             <h1 className='font-OpenSans'>Diagnosa Depresi</h1>
             {pertanyaanList.map((pertanyaan, index) => (
                 <div key={index}>
@@ -69,4 +69,4 @@ function DiagnosaDepresi() {
     );
 }
 
-export default DiagnosaDepresi;
+export default Diagnosa;
