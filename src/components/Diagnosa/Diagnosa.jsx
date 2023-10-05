@@ -24,7 +24,7 @@ function Diagnosa() {
             "Sering": 4,
             "Kadang-kadang": 3,
             "Jarang": 2,
-            "Tidak Pernah": 1
+            "Tidak Pernah": 1,
         };
 
         const totalSkor = jawaban.reduce((acc, val) => acc + nilaiSkala[val], 0);
@@ -42,30 +42,36 @@ function Diagnosa() {
     };
 
     return (
-        <div className="app bg-merah" >
-            <h1 className='font-OpenSans'>Diagnosa Depresi</h1>
-            {pertanyaanList.map((pertanyaan, index) => (
-                <div key={index}>
-                    <p>{pertanyaan}</p>
-                    {skalaJawaban.map((skala, sIndex) => (
-                        <label key={sIndex}>
-                            <input 
-                                type="radio" 
-                                value={skala} 
-                                checked={jawaban[index] === skala}
-                                onChange={() => setJawaban(prev => {
-                                    const newArr = [...prev];
-                                    newArr[index] = skala;
-                                    return newArr;
-                                })}
-                            /> {skala}
-                        </label>
+        <section className="app bg-merahtua">
+            <div className='container mx-auto py-16 w-5/6 lg:w-2/3'>
+                {/* form */}
+                <div className='bg-krim p-6 px-20 rounded-xl shadow-md'> 
+                    <h1 className='font-bold font-OpenSans text-3xl text-center mb-8 text-merahtua  '>Diagnosa Depresi</h1>
+                    {pertanyaanList.map((pertanyaan, index) => (
+                        <div className='text-lg mb-6 font-Poppins' key={index}>
+                            <p>{index+1}. {pertanyaan}</p>
+                            {skalaJawaban.map((skala, sIndex) => (
+                                <label key={sIndex}>
+                                    <input
+                                        type="radio"
+                                        value={skala}
+                                        checked={jawaban[index] === skala}
+                                        onChange={() => setJawaban(prev => {
+                                            const newArr = [...prev];
+                                            newArr[index] = skala;
+                                            return newArr;
+                                        })}
+                                    /> {skala}
+                                </label>
+                            ))}
+                        </div>
                     ))}
+                    <button onClick={handleSubmit}>Cek Hasil</button>
+                    {hasil && <div className="hasil"><h2>Hasil: {hasil}</h2></div>}
                 </div>
-            ))}
-            <button onClick={handleSubmit}>Cek Hasil</button>
-            {hasil && <div className="hasil"><h2>Hasil: {hasil}</h2></div>}
-        </div>
+            </div>
+            
+        </section>
     );
 }
 
