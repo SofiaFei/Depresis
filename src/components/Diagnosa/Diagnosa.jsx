@@ -61,7 +61,7 @@ function Diagnosa() {
         const totalSkor = jawaban.reduce((acc, val) => acc + nilaiSkala[val], 0);
         const skorMax = 5 * pertanyaanList.length;
 
-         if (totalSkor >= skorMax * 0.8) {
+        if (totalSkor >= skorMax * 0.8) {
             setHasil('Depresi Berat');
             setSolusi('Kami sarankan Anda segera konsultasi dengan ahli kesehatan mental.');
         } else if (totalSkor >= skorMax * 0.5) {
@@ -82,52 +82,38 @@ function Diagnosa() {
                 {/* form */}
                 <div className='bg-krim p-6 px-20 rounded-xl shadow-md'>
                     <h1 className='font-bold font-OpenSans text-3xl text-center mb-8 text-merahtua  '>Diagnosa Depresi</h1>
-            {error && <p className="text-red-500">{error}</p>}
-            
-            {pertanyaanList.map((pertanyaan, index) => (
-                <div key={index}>
-                    <p>{pertanyaan}</p>
-                    {skalaJawaban.map((skala, sIndex) => (
-                        <label key={sIndex}>
-                            <input 
-                                type="radio" 
-                                value={skala} 
-                                checked={jawaban[index] === skala}
-                                onChange={() => setJawaban(prev => {
-                                    const newArr = [...prev];
-                                    newArr[index] = skala;
-                                    return newArr;
-                                })}
-                            /> {skala}
-                        </label>
-                            {/* <div id="form-wrapper">
-                                <form>
-                                    <div id="diagnosis-slider">
-                                        {skalaJawaban.map((skala, index) => (
-                                            <div>
-                                                <input type="radio" name="diagnosis" id={skala?.id} value={index} required />
-                                                <label for={skala?.id} data-diagnosis={skala?.skala}>{skala?.ska}</label>
-                                            </div>
-                                        )
-                                        )}
-                                    </div>
-                                    <div id="diagnosis-pos"></div>
+                    {error && <p className="text-red-500">{error}</p>}
 
-                                </form>
-                            </div> */}
+                    {pertanyaanList.map((pertanyaan, index) => (
+                        <div key={index}>
+                            <p>{pertanyaan}</p>
+                            {skalaJawaban.map((skala, sIndex) => (
+                                <label key={sIndex}>
+                                    <input
+                                        type="radio"
+                                        value={skala}
+                                        checked={jawaban[index] === skala}
+                                        onChange={() => setJawaban(prev => {
+                                            const newArr = [...prev];
+                                            newArr[index] = skala;
+                                            return newArr;
+                                        })}
+                                    /> {skala}
+                                </label>
+
+                            ))}
+                        </div>
                     ))}
+
+                    <button onClick={handleSubmit} className="bg-blue-500 text-white py-2 px-4 rounded mt-4">Cek Hasil</button>
+
+                    {hasil && (
+                        <div className="hasil mt-4">
+                            <h2 className="text-lg font-bold">Hasil: {hasil}</h2>
+                            <p className="text-base font-semibold mt-2">{solusi}</p>
+                        </div>
+                    )}
                 </div>
-            ))}
-            
-            <button onClick={handleSubmit} className="bg-blue-500 text-white py-2 px-4 rounded mt-4">Cek Hasil</button>
-            
-            {hasil && (
-                <div className="hasil mt-4">
-                    <h2 className="text-lg font-bold">Hasil: {hasil}</h2>
-                    <p className="text-base font-semibold mt-2">{solusi}</p>
-                </div>
-            )}
-        </div>
             </div>
         </section>
     );
