@@ -43,11 +43,12 @@ function Diagnosa() {
 
     return (
         <section className="app bg-merahtua">
-            <div className='container mx-auto w-5/6 lg:w-2/3'>
-                <form className='bg-krim mt-16 p-6 px-8 rounded-xl shadow-md'>
-                    <h1 className='font-bold font-OpenSans text-2xl text-center mb-4 text-merahtua  '>Diagnosa Depresi</h1>
+            <div className='container mx-auto py-16 w-5/6 lg:w-2/3'>
+                {/* form */}
+                <div className='bg-krim p-6 px-20 rounded-xl shadow-md'> 
+                    <h1 className='font-bold font-OpenSans text-3xl text-center mb-8 text-merahtua  '>Diagnosa Depresi</h1>
                     {pertanyaanList.map((pertanyaan, index) => (
-                        <div className='mb-4 ml-4 font-Poppins w-11/12' key={index}>
+                        <div className='text-lg mb-6 font-Poppins' key={index}>
                             <p>{index+1}. {pertanyaan}</p>
                             {skalaJawaban.map((skala, sIndex) => (
                                 <label key={sIndex}>
@@ -67,8 +68,9 @@ function Diagnosa() {
                     ))}
                     <button onClick={handleSubmit}>Cek Hasil</button>
                     {hasil && <div className="hasil"><h2>Hasil: {hasil}</h2></div>}
-                </form>
+                </div>
             </div>
+            
         </section>
     );
 }
