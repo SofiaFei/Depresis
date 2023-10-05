@@ -7,6 +7,7 @@ import {
   Navbar,
   Home,
   Diagnosa,
+  Quiz,
   Footer
 } from "./components";
 
@@ -19,6 +20,7 @@ function App() {
       <Routes>
         <Route path='/' exact element={<Home />} />
         <Route path='/Diagnosa' element={<Diagnosa />} />
+        <Route path='/Quiz' element={<Quiz />} />
       </Routes>
       <Footer />
     </BrowserRouter>

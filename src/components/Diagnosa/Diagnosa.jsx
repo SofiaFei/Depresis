@@ -1,6 +1,8 @@
 // src/Diagnosa.js
 
 import React, { useState } from 'react';
+import Choice from "./Choice";
+import { questions } from "./question";
 
 const pertanyaanList = [
     "Apakah Anda sering merasa marah atau mudah tersinggung?",
@@ -12,7 +14,29 @@ const pertanyaanList = [
     "Apakah Anda sering berpikir tentang kematian atau memiliki pemikiran untuk bunuh diri?"
 ];
 
-const skalaJawaban = ["Selalu", "Sering", "Kadang-kadang", "Jarang", "Tidak Pernah"];
+const skalaJawaban = ["Tidak Pernah", "Jarang", "Kadang-kadang", "Sering", "Selalu"];
+
+// const skalaJawaban = [
+//     {
+//         id: 1,
+//         skala: "Tidak Pernah"
+//     },
+//     {
+//         id: 2,
+//         skala: "Jarang"
+//     },
+//     {
+//         id: 3,
+//         skala: "Kadang-Kadang"
+//     },
+//     {
+//         id: 4,
+//         skala: "Sering"
+//     },
+//     {
+//         id: 5,
+//         skala: "Selalu"
+//     }];
 
 function Diagnosa() {
     const [jawaban, setJawaban] = useState(Array(pertanyaanList.length).fill(null));
@@ -20,11 +44,11 @@ function Diagnosa() {
 
     const handleSubmit = () => {
         const nilaiSkala = {
-            "Selalu": 5,
-            "Sering": 4,
-            "Kadang-kadang": 3,
-            "Jarang": 2,
             "Tidak Pernah": 1,
+            "Jarang": 2,
+            "Kadang-kadang": 3,
+            "Sering": 4,
+            "Selalu": 5,
         };
 
         const totalSkor = jawaban.reduce((acc, val) => acc + nilaiSkala[val], 0);
@@ -45,11 +69,11 @@ function Diagnosa() {
         <section className="app bg-merahtua">
             <div className='container mx-auto py-16 w-5/6 lg:w-2/3'>
                 {/* form */}
-                <div className='bg-krim p-6 px-20 rounded-xl shadow-md'> 
+                <div className='bg-krim p-6 px-20 rounded-xl shadow-md'>
                     <h1 className='font-bold font-OpenSans text-3xl text-center mb-8 text-merahtua  '>Diagnosa Depresi</h1>
                     {pertanyaanList.map((pertanyaan, index) => (
                         <div className='text-lg mb-6 font-Poppins' key={index}>
-                            <p>{index+1}. {pertanyaan}</p>
+                            <p>{index + 1}. {pertanyaan}</p>
                             {skalaJawaban.map((skala, sIndex) => (
                                 <label key={sIndex}>
                                     <input
@@ -64,13 +88,30 @@ function Diagnosa() {
                                     /> {skala}
                                 </label>
                             ))}
+                            {/* <div id="form-wrapper">
+                                <form>
+                                    <div id="diagnosis-slider">
+                                        {skalaJawaban.map((skala, index) => (
+                                            <div>
+                                                <input type="radio" name="diagnosis" id={skala?.id} value={index} required />
+                                                <label for={skala?.id} data-diagnosis={skala?.skala}>{skala?.ska}</label>
+                                            </div>
+                                        )
+                                        )}
+                                    </div>
+                                    <div id="diagnosis-pos"></div>
+
+                                </form>
+                            </div> */}
+
                         </div>
                     ))}
                     <button onClick={handleSubmit}>Cek Hasil</button>
                     {hasil && <div className="hasil"><h2>Hasil: {hasil}</h2></div>}
                 </div>
+
             </div>
-            
+
         </section>
     );
 }
