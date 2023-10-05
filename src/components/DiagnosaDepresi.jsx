@@ -43,7 +43,7 @@ function DiagnosaDepresi() {
 
     return (
         <div className="app" >
-            <h1>Diagnosa Depresi</h1>
+            <h1 className='font-OpenSans'>Diagnosa Depresi</h1>
             {pertanyaanList.map((pertanyaan, index) => (
                 <div key={index}>
                     <p>{pertanyaan}</p>
