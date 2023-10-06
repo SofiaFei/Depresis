@@ -86,8 +86,8 @@ const Home = () => {
         </div>
       </section>
 
-      <section id="faq" className="faq bg-slate-100" data-aos="fade-up" data-aos-duration="3000">
-        <div className="flex-row justify-center" data-aos="fade-up">
+      <section id="faq" className="faq bg-slate-100">
+        <div className="flex-row justify-center" data-aos="fade-up" data-aos-duration="1500">
           <div className="w-10/12 mx-auto pb-16">
             <div className="text-center font-Jost text-4xl font-bold text-merahtua pt-16 pb-12">
               <h2 className="">
