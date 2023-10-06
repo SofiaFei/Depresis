@@ -8,7 +8,7 @@ const Footer = () => {
           &copy; Copyright <strong><span>DEPRESIS</span></strong>. All Rights Reserved
         </div>
         <div class="credits px-16">
-          Designed by <a class="text-biru">Kelompok 5</a>
+          Designed by <span class="text-biru">Kelompok 5</span>
         </div>
       </div>
     </footer>

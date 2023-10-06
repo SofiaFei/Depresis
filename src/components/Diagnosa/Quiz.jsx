@@ -1,16 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Choice from "./Choice";
 import { questions } from "./question";
 import Modal from './Modal';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+
 
 
 const Quiz = () => {
-    useEffect(() => {
-        AOS.init();
-    }, [])
-
     const [isOpen, setIsOpen] = useState(false);
     const [data, setData] = useState({});
     const [result, setResult] = useState('');
