@@ -23,13 +23,11 @@ Kondisi dibagi menjadi tiga bagian antara lain tidak pernah, jarang, sering, dan
 
 Lalu dibuat aturan untuk mendiagnosa depresi :
 
-1. If jawaban tidak pernah nya sama dengan 10, maka result diagnosa nya adalah tidak depresi dan akan mengeluarkan solusi untuk menjaga kesehatan mental.
+1. IF tidak pernah == 10 Then Tidak Depresi 
 
-2. Else If jawaban selalu atau sering lebih besar daripada 5 dan jawaban jarang kurang dari 5 dan jawaban tidak pernah kurang dari 2 makan result diagnosanya
-   adalah depresi berat dan solusinya untuk segera konsultasi dengan ahli kesehatan mental.
+2. IF (selalu >= 5 || sering >= 5) && jarang <= 5 && tidak pernah <= 2 THEN Depresi Berat
 
-3. Else If jawaban tidak pernah lebih besar dari 5, jawaban jarang kurang dari 5, jawaban sering dan selalu kurang dari 2 maka result diagnosanya adalah depresi ringan
-   lalu akan keluar solusi untuk mencoba melakukan relaksasi dan aktivitas yang disukai.
+3. IF (tidak pernah >= 5 && jarang <= 5 && sering <= 2 && selalu <= 2) THEN Depresi Ringan
 
-4. Else If jawaban jarangnya lebih besar dari 2 dan kurang dari 10, jawaban tidak pernah, sering, selalu lebih besar dari 2 dan kurang dari 5, jawaban tidak pernah dan sering
-   adalah sama dengan 5 makan result diagnosanya adalah depresi menengah dan akan mengeluarkan solusi mempertimbangkan untuk bicara dengan konselor atau terapis.      
+4. IF (jarang >= 2 && jarang <= 10) || (tidak pernah >= 2 && tidak pernah < 5) || (sering >= 2 && sering < 5) ||
+   (selalu >= 2 && selalu < 5) || (tidak pernah == 5 && sering == 5) THEN Depresi Menengah
