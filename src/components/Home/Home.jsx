@@ -1,6 +1,7 @@
-import React,{ useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { heroImg } from "../../assets";
 import { BsCheckAll } from "react-icons/bs";
+import { AiOutlineQuestionCircle } from "react-icons/ai";
 import TypeWriter from "./TypeWriter";
 
 const Home = () => {
@@ -31,14 +32,16 @@ const Home = () => {
         </div>
       </section>
 
-      <section id="about" className="about bg-white w-full pt-28">
+      <section id="about" className="about bg-slate-100 w-full pt-28">
         <div className="flex-row justify-center bg-white" data-aos="fade-up">
           <div className="w-10/12 mx-auto pb-16">
             <div className="text-center font-Jost text-4xl font-bold text-merahtua pt-16 pb-12">
               <h2 className="">
                 ABOUT US
-                <div className="border-b-2 border-slate-300 mx-[570px] pb-3"></div>
-                <div className="border-b-[3px] border-biru mx-[610px] -m-[2px]"></div>
+                <div className="mx-auto w-1/12">
+                  <div className="border-b-[1px] border-slate-300 pb-6"></div>
+                  <div className="border-b-[3px] border-biru w-1/3 mx-auto -m-[2px]"></div>
+                </div>
               </h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-4 text-justify font-Poppins">
@@ -54,14 +57,14 @@ const Home = () => {
                 </p>
                 <ul>
                   <li className="flex">
-                    <BsCheckAll className="w-12 h-12 text-biru mr-2" />{" "}
+                    <BsCheckAll className="w-12 h-12 text-biru mr-2" />
                     "Ingatlah bahwa DEPRESIS bukanlah pengganti layanan
                     profesional, jadi pastikan untuk selalu mencari bantuan
                     medis yang tepat jika Anda mengalami gejala depresi"
                   </li>
                 </ul>
               </div>
-              <div className="col-lg-6 pt-4 pb-16">
+              <div className="col-lg-6 pt-4 lg:pt-0 pb-16">
                 <p className="mb-6">
                   Kami membuat DEPRESIS sebagai proyek untuk membantu
                   teman-teman yang mungkin mengalami depresi untuk mengetahui
@@ -78,7 +81,126 @@ const Home = () => {
         </div>
       </section>
 
-      
+      <section id="faq" className="faq bg-slate-100">
+        <div className="flex-row justify-center" data-aos="fade-up">
+          <div className="w-10/12 mx-auto pb-16">
+            <div className="text-center font-Jost text-4xl font-bold text-merahtua pt-16 pb-12">
+              <h2 className="">
+                FREQUENTLY ASK QUESTIONS
+                <div className="mx-auto w-1/12">
+                  <div className="border-b-[1px] border-slate-300 pb-6"></div>
+                  <div className="border-b-[3px] border-biru w-1/3 mx-auto -m-[2px]"></div>
+                </div>
+              </h2>
+            </div>
+            <div
+              className="relative w-full bg-krim mt-6 ring-1 ring-krim sm:mx-auto sm:max-w-2xl rounded-md sm:px-10">
+              <div className="mx-auto">
+                <div className="py-6">
+                  <details className="group">
+                    <summary className="flex cursor-pointer list-none items-center justify-between font-medium hover:text-biru font-Poppins font-slate-400 group-open:text-biru">
+                      <div className="flex items-center gap-4">
+                        <AiOutlineQuestionCircle className="text-biru" />
+                        <span className=""> Apa itu DEPRESIS ?</span>
+                      </div>
+                      <span className="transition group-open:rotate-180">
+                        <svg fill="none" height="24" shape-rendering="geometricPrecision"
+                          stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                          stroke-width="1.5" viewBox="0 0 24 24" width="24">
+                          <path d="M6 9l6 6 6-6"></path>
+                        </svg>
+                      </span>
+                    </summary>
+                    <p className="group-open:animate-fadeIn text-base mt-3 text-slate-600 text-justify px-7">
+                      DEPRESIS adalah sebuah situs yang membantu mahasiswa akhir mengukur tingkat depresi mereka dengan mengisi formulir pertanyaan.
+                      Kami menyediakan solusi sesuai setelah mahasiswa mengisi formulir tersebut.
+                    </p>
+                  </details>
+                </div>
+              </div>
+            </div>
+            <div
+              className="relative w-full bg-krim mt-6 ring-1 ring-krim sm:mx-auto sm:max-w-2xl rounded-md sm:px-10">
+              <div className="mx-auto">
+                <div className="py-6">
+                  <details className="group">
+                    <summary className="flex cursor-pointer list-none items-center justify-between font-medium hover:text-biru font-Poppins font-slate-400 group-open:text-biru">
+                      <div className="flex items-center gap-4">
+                        <AiOutlineQuestionCircle className="text-biru" />
+                        <span className=""> Siapa yang bisa mengakses DEPRESIS ?</span>
+                      </div>
+                      <span className="transition group-open:rotate-180">
+                        <svg fill="none" height="24" shape-rendering="geometricPrecision"
+                          stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                          stroke-width="1.5" viewBox="0 0 24 24" width="24">
+                          <path d="M6 9l6 6 6-6"></path>
+                        </svg>
+                      </span>
+                    </summary>
+                    <p className="group-open:animate-fadeIn text-base mt-3 text-slate-600 text-justify px-7">
+                      DEPRESIS ditujukan untuk mahasiswa akhir, namun siapa saja dapat mengakses situs ini dan mengisi formulir untuk mengetahui tingkat
+                        depresi mereka.
+                    </p>
+                  </details>
+                </div>
+              </div>
+            </div>
+            <div
+              className="relative w-full bg-krim mt-6 ring-1 ring-krim sm:mx-auto sm:max-w-2xl sm:rounded-lg sm:px-10">
+              <div className="mx-auto">
+                <div className="py-6">
+                  <details className="group">
+                    <summary className="flex cursor-pointer list-none items-center justify-between font-medium hover:text-biru font-Poppins font-slate-400 group-open:text-biru">
+                      <div className="flex items-center gap-4">
+                        <AiOutlineQuestionCircle className="text-biru" />
+                        <span className=""> Apakah hasil dari DEPRESIS dapat diandalkan ?</span>
+                      </div>
+                      <span className="transition group-open:rotate-180">
+                        <svg fill="none" height="24" shape-rendering="geometricPrecision"
+                          stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                          stroke-width="1.5" viewBox="0 0 24 24" width="24">
+                          <path d="M6 9l6 6 6-6"></path>
+                        </svg>
+                      </span>
+                    </summary>
+                    <p className="group-open:animate-fadeIn text-base mt-3 text-slate-600 text-justify px-7">
+                    Hasil dari DEPRESIS adalah sebuah estimasi dari tingkat depresi seseorang, dan tidak bisa dianggap sebagai diagnosis yang pasti.
+                        Kami sangat menyarankan agar seseorang yang merasa memiliki tingkat depresi yang tinggi untuk segera meminta bantuan profesional.
+                    </p>
+                  </details>
+                </div>
+              </div>
+            </div>
+            <div
+              className="relative w-full bg-krim mt-6 ring-1 ring-krim sm:mx-auto sm:max-w-2xl rounded-md sm:px-10">
+              <div className="mx-auto">
+                <div className="py-6">
+                  <details className="group">
+                    <summary className="flex cursor-pointer list-none items-center justify-between font-medium hover:text-biru font-Poppins font-slate-400 group-open:text-biru">
+                      <div className="flex items-center gap-4">
+                        <AiOutlineQuestionCircle className="text-biru" />
+                        <span className=""> Bagaimana cara mengakses solusi yang ditawarkan DEPRESIS ?</span>
+                      </div>
+                      <span className="transition group-open:rotate-180">
+                        <svg fill="none" height="24" shape-rendering="geometricPrecision"
+                          stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                          stroke-width="1.5" viewBox="0 0 24 24" width="24">
+                          <path d="M6 9l6 6 6-6"></path>
+                        </svg>
+                      </span>
+                    </summary>
+                    <p className="group-open:animate-fadeIn text-base mt-3 text-slate-600 text-justify px-7">
+                    Setelah mengisi formulir, mahasiswa akan menerima rekomendasi solusi sesuai dengan tingkat depresi yang terdeteksi.
+                        Kami juga menyediakan tautan ke sumber informasi dan bantuan profesional yang dapat membantu mahasiswa mengatasi depresi mereka.
+                    </p>
+                  </details>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
