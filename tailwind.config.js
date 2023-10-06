@@ -23,6 +23,7 @@ export default {
         merah: "#8A1616",
         krim: "#EDE1D2",
         krimtua: "#C4B8B0",
+        biru: "#47b2e4",
       },
     },
   },
