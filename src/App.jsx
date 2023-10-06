@@ -1,12 +1,9 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import {
   Navbar,
   Home,
-  Diagnosa,
   Quiz,
   Footer
 } from "./components";
@@ -19,7 +16,6 @@ function App() {
       <Navbar />
       <Routes>
         <Route path='/' exact element={<Home />} />
-        <Route path='/Diagnosa' element={<Diagnosa />} />
         <Route path='/Quiz' element={<Quiz />} />
       </Routes>
       <Footer />

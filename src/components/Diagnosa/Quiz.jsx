@@ -1,10 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Choice from "./Choice";
 import { questions } from "./question";
 import Modal from './Modal';
-import Diagnosa from "./Diagnosa";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 
 const Quiz = () => {
+    useEffect(() => {
+        AOS.init();
+    }, [])
+
     const [isOpen, setIsOpen] = useState(false);
     const [data, setData] = useState({});
     const [result, setResult] = useState('');
@@ -21,7 +27,6 @@ const Quiz = () => {
         e.preventDefault();
 
         const arr = Object.entries(data);
-        // console.log(arr);
         let tp = 0;
         let j = 0;
         let sr = 0;
@@ -35,30 +40,8 @@ const Quiz = () => {
                 sr++;
             } else if (e[1] == "selalu") {
                 sl++;
-            } 
+            }
         });
-
-        // if (tp == 10) {
-        //     setResult("Tidak Depresi");
-        //     setSolusi("Tetap jaga kesehatan mental Anda.");
-        //     setIsOpen(true);
-        // } else if (sr >= 5 && j <= 5 && tp <= 2) {
-        //     setResult("Depresi Berat");
-        //     setSolusi("Kami sarankan Anda segera konsultasi dengan ahli kesehatan mental.");
-        //     setIsOpen(true);
-        // } else if (tp >= 5 && j <= 5 && sr <= 2) {
-        //     setResult("Depresi Ringan");
-        //     setSolusi("Coba lakukan relaksasi dan aktivitas yang Anda sukai.");
-        //     setIsOpen(true);
-        // } else if ((j >= 2 && j <= 10) || (tp >= 2 && tp < 5) || (sr >= 2 && sr < 5) || (tp == 5 && sr == 5)) {
-        //     setResult("Depresi Menengah");
-        //     setSolusi("Pertimbangkan untuk berbicara dengan konselor atau terapis.");
-        //     setIsOpen(true);
-        // } else {
-        //     setResult('Depresi');
-        //     setSolusi("Mendekatkan diri kepada yang maha kuasa.");
-        //     setIsOpen(true);
-        // }
 
         if (tp === 10) {
             setResult("Tidak Depresi");
@@ -88,7 +71,7 @@ const Quiz = () => {
             <div className="p-16 mx-auto w-5/6 lg:w-8/12 flex flex-col gap-5">
                 <form
                     onSubmit={submit}
-                    className="bg-krim p-6 px-20 rounded-xl shadow-md">
+                    className="bg-krim p-6 px-20 rounded-xl shadow-md" data-aos="fade-up" data-aos-duration="1500">
                     <h1 className='font-bold font-OpenSans text-4xl text-center mb-8 mt-2 text-merahtua'>Diagnosa Depresi</h1>
                     <div className="">
                         {questions.map((e) => {

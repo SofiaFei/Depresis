@@ -23,8 +23,8 @@ export default function Modal({ setIsOpen, result, solusi }) {
               </div>
               {/*body*/}
               <div className="relative p-6 flex-auto">
-                <p className="my-4 text-slate-700 font-semibold text-xl leading-relaxed"> 
-                {result}     
+                <p className="my-4 text-slate-700 font-semibold text-xl leading-relaxed">
+                  {result}
                 </p>
                 <p className="my-4 text-slate-500 text-lg leading-relaxed">{solusi}</p>
               </div>
