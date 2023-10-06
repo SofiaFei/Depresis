@@ -10,7 +10,7 @@ const Home = () => {
         id="hero"
         className="w-full h-screen flex flex-row justify-center items-center bg-merahtua font-Jost"
       >
-        <div className="w-1/2 h-full flex flex-col justify-center items-center">
+        <div className="h-full flex flex-col justify-center items-center">
           <div className="w-10/12 ml-8">
             <h1 className="text-2xl font-semibold">Welcome To DEPRESIS</h1>
             <h2>

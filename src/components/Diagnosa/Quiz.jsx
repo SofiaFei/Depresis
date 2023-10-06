@@ -89,7 +89,7 @@ const Quiz = () => {
                 <form
                     onSubmit={submit}
                     className="bg-krim p-6 px-20 rounded-xl shadow-md">
-                    <h1 className='font-bold font-OpenSans text-3xl text-center mb-8 text-merahtua'>Diagnosa Depresi</h1>
+                    <h1 className='font-bold font-OpenSans text-4xl text-center mb-8 mt-2 text-merahtua'>Diagnosa Depresi</h1>
                     <div className="">
                         {questions.map((e) => {
                             return (
@@ -106,7 +106,7 @@ const Quiz = () => {
                         <div className="w-full flex justify-center mt-12">
                             <button
                                 type="submit"
-                                className="text-white bg-gradient-to-br from-merah to-merahtua hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-merah font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 w-1/3"
+                                className="text-white bg-gradient-to-br from-merah to-merahtua hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-merah font-medium rounded-lg text-base px-5 py-2.5 text-center mr-2 mb-2 w-1/4"
                             >
                                 Submit
                             </button>
