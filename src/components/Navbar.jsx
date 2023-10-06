@@ -5,7 +5,7 @@ const Navbar = () => {
   return (
     <nav class="bg-merahtua fixed w-full border-gray-200">
       <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a href="/" class="flex items-center">
+        <Link to="/" class="flex items-center">
           <img
             src="img/logo2.png"
             class="h-8 mr-3"
@@ -14,7 +14,7 @@ const Navbar = () => {
           <span class="self-center text-2xl font-semibold font-Jost whitespace-nowrap text-krim">
             DEPRESIS
           </span>
-        </a>
+        </Link>
         <button
           data-collapse-toggle="navbar-default"
           type="button"
