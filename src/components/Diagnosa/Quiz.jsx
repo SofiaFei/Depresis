@@ -43,7 +43,7 @@ const Quiz = () => {
             }
         });
 
-        if (tp === 10) {
+        if (tp == 10) {
             setResult("Tidak Depresi");
             setSolusi("Tetap jaga kesehatan mental Anda.");
             setIsOpen(true);
