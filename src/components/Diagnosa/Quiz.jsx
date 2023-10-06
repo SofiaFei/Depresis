@@ -9,7 +9,7 @@ import 'aos/dist/aos.css';
 const Quiz = () => {
     useEffect(() => {
         AOS.init();
-      }, [])
+    }, [])
 
     const [isOpen, setIsOpen] = useState(false);
     const [data, setData] = useState({});
@@ -27,7 +27,6 @@ const Quiz = () => {
         e.preventDefault();
 
         const arr = Object.entries(data);
-        // console.log(arr);
         let tp = 0;
         let j = 0;
         let sr = 0;
@@ -41,7 +40,7 @@ const Quiz = () => {
                 sr++;
             } else if (e[1] == "selalu") {
                 sl++;
-            } 
+            }
         });
 
         if (tp === 10) {
