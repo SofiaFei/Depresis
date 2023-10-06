@@ -3,8 +3,13 @@ import { heroImg } from "../../assets";
 import { BsCheckAll } from "react-icons/bs";
 import { AiOutlineQuestionCircle } from "react-icons/ai";
 import TypeWriter from "./TypeWriter";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Home = () => {
+  useEffect(() => {
+    AOS.init();
+  }, [])
   return (
     <div>
       <section
@@ -13,14 +18,14 @@ const Home = () => {
       >
         <div className="h-full flex flex-col justify-center items-center">
           <div className="w-10/12 ml-8">
-            <h1 className="text-2xl font-semibold"><TypeWriter text="Welcome To DEPRESIS" delay={350} /></h1>
+            <h1 className="text-2xl font-semibold"><TypeWriter text="Welcome To DEPRESIS" delay={100} /></h1>
             <h2>
-              <TypeWriter text="Sistem Pakar Diagnosa Tingkat Depresi Mahasiswa Tingkat Akhir" delay={100} />
+              <TypeWriter text="Sistem Pakar Diagnosa Tingkat Depresi Mahasiswa Tingkat Akhir" delay={50} />
             </h2>
             <div className="flex justify-start">
               <a
                 href="/Quiz"
-                className="text-white font-semibold bg-biru scrollto rounded-full px-8 py-2 hover:text-blue-950 transition duration-300 hover:duration-500  ease-in-out"
+                className="text-white font-semibold bg-biru scrollto rounded-full px-8 py-2 hover:text-blue-950 transition duration-300 hover:duration-500 ease-in-out"
               >
                 Cek Tingkat Depresimu Sekarang
               </a>
@@ -81,7 +86,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section id="faq" className="faq bg-slate-100">
+      <section id="faq" className="faq bg-slate-100" data-aos="fade-up" data-aos-duration="3000">
         <div className="flex-row justify-center" data-aos="fade-up">
           <div className="w-10/12 mx-auto pb-16">
             <div className="text-center font-Jost text-4xl font-bold text-merahtua pt-16 pb-12">
