@@ -3,14 +3,15 @@ import React from "react";
 const Choice = ({ name, question, onChange }) => {
   return (
     <div>
-      <h3 class="mb-4 font-semibold text-dark dark:text-white">{question}</h3>
-      <ul class="items-center w-full ml-4 mx-auto text-sm font-medium text-slate-900 bg-white/70 border border-krim rounded-lg sm:flex">
+      <h3 class="mb-4 font-Poppins text-lg font-semibold text-dark dark:text-white">{question}</h3>
+      <ul class="items-center w-10/12 ml-10 mx-auto font-Poppins text-center font-medium text-slate-900 bg-white/70 border border-krim rounded-full sm:flex">
         <li class="w-full border-b border-krim hover:bg-krimtua/20 sm:border-b-0 sm:border-r dark:border-gray-600">
           <div class="flex items-center pl-3">
             <input
               id={`tidakpernah-${name}`}
               type="radio"
               value="tidakpernah"
+              required
               name={name}
               onChange={onChange}
               class="w-4 h-4 text-merah bg-gray-100 border-gray-300 focus:ring-merahtua dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2"
@@ -29,6 +30,7 @@ const Choice = ({ name, question, onChange }) => {
               id={`jarang-${name}`}
               type="radio"
               value="jarang"
+              required
               name={name}
               onChange={onChange}
               class="w-4 h-4 text-merah bg-gray-100 border-gray-300 focus:ring-merahtua dark:focus:ring-merah dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
@@ -41,30 +43,31 @@ const Choice = ({ name, question, onChange }) => {
             </label>
           </div>
         </li>
-        <li class="w-full border-b border-krim hover:bg-krimtua/20  sm:border-b-0 sm:border-r dark:border-gray-600">
+        {/* <li class="w-full border-b border-krim hover:bg-krimtua/20  sm:border-b-0 sm:border-r dark:border-gray-600">
           <div class="flex items-center pl-3">
             <input
-              id={`sering-${name}`}
+              id={`terkadang-${name}`}
               type="radio"
-              value="sering"
+              value="terkadang"
               name={name}
               onChange={onChange}
               class="w-4 h-4 text-merah bg-gray-100 border-gray-300 focus:ring-merahtua dark:focus:ring-merah dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
             />
             <label
-              for={`sering-${name}`}
+              for={`terkadang-${name}`}
               class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
             >
               Terkadang
             </label>
           </div>
-        </li>
+        </li> */}
         <li class="w-full border-b border-krim hover:bg-krimtua/20 sm:border-b-0 sm:border-r dark:border-gray-600">
           <div class="flex items-center pl-3">
             <input
               id={`sering-${name}`}
               type="radio"
               value="sering"
+              required
               name={name}
               onChange={onChange}
               class="w-4 h-4 text-merah bg-gray-100 border-gray-300 focus:ring-merahtua dark:focus:ring-merah dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
@@ -83,6 +86,7 @@ const Choice = ({ name, question, onChange }) => {
               id={`selalu-${name}`}
               type="radio"
               value="selalu"
+              required
               name={name}
               onChange={onChange}
               class="w-4 h-4 text-merah bg-gray-100 border-gray-300 focus:ring-merahtua dark:focus:ring-merah dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"

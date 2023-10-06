@@ -7,8 +7,8 @@ import Diagnosa from "./Diagnosa";
 const Quiz = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [data, setData] = useState({});
-    const [hasil, setHasil] = useState(null);
-    const [solusi, setSolusi] = useState(null);
+    const [result, setResult] = useState('');
+    const [solusi, setSolusi] = useState('');
 
     const updateData = (e) => {
         setData({
@@ -17,83 +17,103 @@ const Quiz = () => {
         });
     };
 
-    const toggleModal = () => {
-        setIsOpen(!isOpen);
-    };
-
     const submit = (e) => {
         e.preventDefault();
 
-        const nilaiSkala = {
-            "Tidak Pernah": 1,
-            "Jarang": 2,
-            "Kadang-kadang": 3,
-            "Sering": 4,
-            "Selalu": 5,
-        };
+        const arr = Object.entries(data);
+        // console.log(arr);
+        let tp = 0;
+        let j = 0;
+        let sr = 0;
+        let sl = 0;
+        arr.map((e, i) => {
+            if (e[1] == "tidakpernah") {
+                tp++;
+            } else if (e[1] == "jarang") {
+                j++;
+            } else if (e[1] == "sering") {
+                sr++;
+            } else if (e[1] == "selalu") {
+                sl++;
+            } 
+        });
 
-        const totalSkor = Object.values(data).reduce((acc, val) => acc + nilaiSkala[val], 0);
-        const skorMax = 5 * questions.length;
+        // if (tp == 10) {
+        //     setResult("Tidak Depresi");
+        //     setSolusi("Tetap jaga kesehatan mental Anda.");
+        //     setIsOpen(true);
+        // } else if (sr >= 5 && j <= 5 && tp <= 2) {
+        //     setResult("Depresi Berat");
+        //     setSolusi("Kami sarankan Anda segera konsultasi dengan ahli kesehatan mental.");
+        //     setIsOpen(true);
+        // } else if (tp >= 5 && j <= 5 && sr <= 2) {
+        //     setResult("Depresi Ringan");
+        //     setSolusi("Coba lakukan relaksasi dan aktivitas yang Anda sukai.");
+        //     setIsOpen(true);
+        // } else if ((j >= 2 && j <= 10) || (tp >= 2 && tp < 5) || (sr >= 2 && sr < 5) || (tp == 5 && sr == 5)) {
+        //     setResult("Depresi Menengah");
+        //     setSolusi("Pertimbangkan untuk berbicara dengan konselor atau terapis.");
+        //     setIsOpen(true);
+        // } else {
+        //     setResult('Depresi');
+        //     setSolusi("Mendekatkan diri kepada yang maha kuasa.");
+        //     setIsOpen(true);
+        // }
 
-        if (totalSkor >= skorMax * 0.8) {
-            setHasil('Depresi Berat');
-            setSolusi('Kami sarankan Anda segera konsultasi dengan ahli kesehatan mental.');
-        } else if (totalSkor >= skorMax * 0.5) {
-            setHasil('Depresi Menengah');
-            setSolusi('Pertimbangkan untuk berbicara dengan konselor atau terapis.');
-        } else if (totalSkor >= skorMax * 0.2) {
-            setHasil('Depresi Ringan');
-            setSolusi('Coba lakukan relaksasi dan aktivitas yang Anda sukai.');
+        if (tp === 10) {
+            setResult("Tidak Depresi");
+            setSolusi("Tetap jaga kesehatan mental Anda.");
+            setIsOpen(true);
+        } else if ((sl >= 5 || sr >= 5) && j <= 5 && tp <= 2) {
+            setResult("Depresi Berat");
+            setSolusi("Kami sarankan Anda segera konsultasi dengan ahli kesehatan mental.");
+            setIsOpen(true);
+        } else if (tp >= 5 && j <= 5 && sr <= 2 && sl <= 2) {
+            setResult("Depresi Ringan");
+            setSolusi("Coba lakukan relaksasi dan aktivitas yang Anda sukai.");
+            setIsOpen(true);
+        } else if ((j >= 2 && j <= 10) || (tp >= 2 && tp < 5) || (sr >= 2 && sr < 5) || (sl >= 2 && sl < 5) || (tp == 5 && sr == 5)) {
+            setResult("Depresi Menengah");
+            setSolusi("Pertimbangkan untuk berbicara dengan konselor atau terapis.");
+            setIsOpen(true);
         } else {
-            setHasil('Tidak Depresi');
-            setSolusi('Tetap jaga kesehatan mental Anda.');
+            setResult('Depresi');
+            setSolusi("Mendekatkan diri kepada yang maha kuasa.");
+            setIsOpen(true);
         }
-
-        toggleModal();
     };
 
     return (
         <section className="bg-merahtua">
-            <div className="p-16 mx-auto w-5/6 lg:w-9/12 flex flex-col gap-5">
+            <div className="p-16 mx-auto w-5/6 lg:w-8/12 flex flex-col gap-5">
                 <form
                     onSubmit={submit}
                     className="bg-krim p-6 px-20 rounded-xl shadow-md">
-                    <h1 className='font-bold font-OpenSans text-3xl text-center mb-8 text-merahtua'>Diagnosa Depresi</h1>
+                    <h1 className='font-bold font-OpenSans text-4xl text-center mb-8 mt-2 text-merahtua'>Diagnosa Depresi</h1>
                     <div className="">
                         {questions.map((e) => {
                             return (
-                                <div className="w-11/12 mx-auto mt-10 text-lg">
+                                <div className="w-11/12 mx-auto mt-12 text-lg">
                                     <Choice
                                         key={e.name}
                                         question={e.question}
                                         name={e.name}
                                         onChange={updateData}
-                                    /> 
+                                    />
                                 </div>
                             );
                         })}
-                        <div className="w-full flex justify-center mt-10">
+                        <div className="w-full flex justify-center mt-12">
                             <button
                                 type="submit"
-                                className="text-white bg-gradient-to-br from-merah to-merahtua hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-merah font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 w-1/3"
+                                className="text-white bg-gradient-to-br from-merah to-merahtua hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-merah font-medium rounded-lg text-base px-5 py-2.5 text-center mr-2 mb-2 w-1/4"
                             >
                                 Submit
                             </button>
                         </div>
                     </div>
                 </form>
-
-                <Modal 
-                    isOpen={isOpen} 
-                    onClose={toggleModal}
-                    title="Hasil Diagnosa"
-                    content={
-                        <>
-                            <h2 className="text-lg font-bold">Hasil: {hasil}</h2>
-                            <p className="text-base font-semibold mt-2">{solusi}</p>
-                        </>
-                    }
-                />
+                {isOpen && <Modal setIsOpen={setIsOpen} result={result} solusi={solusi} />}
             </div>
         </section>
     );
