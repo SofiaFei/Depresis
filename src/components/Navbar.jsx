@@ -2,9 +2,9 @@ import React from "react";
 
 const Navbar = () => {
   return (
-    <nav class=" bg-merahtua border-gray-200 dark:bg-gray-900">
+    <nav class="bg-merahtua border-gray-200 dark:bg-gray-900">
       <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a href="#" class="flex items-center">
+        <a href="/" class="flex items-center">
           <img
             src="img/logo2.png"
             class="h-8 mr-3"
@@ -43,7 +43,7 @@ const Navbar = () => {
             <li>
               <a
                 href="/"
-                class="block bg-merahtua py-2 pl-3 pr-4 text-krim rounded md:bg-transparent md:hover:text-blue-700 md:p-0 transition duration-0 hover:duration-300"
+                class="block bg-merahtua py-2 pl-3 pr-4 text-krim rounded md:bg-transparent md:hover:text-biru md:p-0 transition duration-0 hover:duration-300"
                 aria-current="page"
               >
                 Home
@@ -52,7 +52,7 @@ const Navbar = () => {
             <li>
               <a
                 href="/Quiz"
-                class="block bg-merahtua py-2 pl-3 pr-4 text-krim rounded md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent transition duration-0 hover:duration-300"
+                class="block bg-merahtua py-2 pl-3 pr-4 text-krim rounded md:hover:bg-transparent md:border-0 md:hover:text-biru md:p-0 transition duration-0 hover:duration-300"
               >
                 Diagnosa
               </a>
