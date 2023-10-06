@@ -38,7 +38,7 @@ const Home = () => {
       </section>
 
       <section id="about" className="about bg-slate-100 w-full pt-28">
-        <div className="flex-row justify-center bg-white" data-aos="fade-up">
+        <div className="flex-row justify-center bg-white" data-aos="fade-up" data-aos-duration="1500">
           <div className="w-10/12 mx-auto pb-16">
             <div className="text-center font-Jost text-4xl font-bold text-merahtua pt-16 pb-12">
               <h2 className="">
@@ -144,7 +144,7 @@ const Home = () => {
                     </summary>
                     <p className="group-open:animate-fadeIn text-base mt-3 text-slate-600 text-justify px-7">
                       DEPRESIS ditujukan untuk mahasiswa akhir, namun siapa saja dapat mengakses situs ini dan mengisi formulir untuk mengetahui tingkat
-                        depresi mereka.
+                      depresi mereka.
                     </p>
                   </details>
                 </div>
@@ -169,8 +169,8 @@ const Home = () => {
                       </span>
                     </summary>
                     <p className="group-open:animate-fadeIn text-base mt-3 text-slate-600 text-justify px-7">
-                    Hasil dari DEPRESIS adalah sebuah estimasi dari tingkat depresi seseorang, dan tidak bisa dianggap sebagai diagnosis yang pasti.
-                        Kami sangat menyarankan agar seseorang yang merasa memiliki tingkat depresi yang tinggi untuk segera meminta bantuan profesional.
+                      Hasil dari DEPRESIS adalah sebuah estimasi dari tingkat depresi seseorang, dan tidak bisa dianggap sebagai diagnosis yang pasti.
+                      Kami sangat menyarankan agar seseorang yang merasa memiliki tingkat depresi yang tinggi untuk segera meminta bantuan profesional.
                     </p>
                   </details>
                 </div>
@@ -195,14 +195,13 @@ const Home = () => {
                       </span>
                     </summary>
                     <p className="group-open:animate-fadeIn text-base mt-3 text-slate-600 text-justify px-7">
-                    Setelah mengisi formulir, mahasiswa akan menerima rekomendasi solusi sesuai dengan tingkat depresi yang terdeteksi.
-                        Kami juga menyediakan tautan ke sumber informasi dan bantuan profesional yang dapat membantu mahasiswa mengatasi depresi mereka.
+                      Setelah mengisi formulir, mahasiswa akan menerima rekomendasi solusi sesuai dengan tingkat depresi yang terdeteksi.
+                      Kami juga menyediakan tautan ke sumber informasi dan bantuan profesional yang dapat membantu mahasiswa mengatasi depresi mereka.
                     </p>
                   </details>
                 </div>
               </div>
             </div>
-            
           </div>
         </div>
       </section>
