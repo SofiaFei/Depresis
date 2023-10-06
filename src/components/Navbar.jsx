@@ -43,7 +43,7 @@ const Navbar = () => {
             <li>
               <a
                 href="/"
-                class="block bg-merahtua py-2 pl-3 pr-4 text-krim rounded md:bg-transparent md:hover:text-biru md:p-0 "
+                class="block bg-merahtua py-2 pl-3 pr-4 text-krim rounded md:bg-transparent md:hover:text-biru md:p-0 transition duration-0 hover:duration-300"
                 aria-current="page"
               >
                 Home
@@ -51,8 +51,8 @@ const Navbar = () => {
             </li>
             <li>
               <a
-                href="/Diagnosa"
-                class="block bg-merahtua py-2 pl-3 pr-4 text-krim rounded md:hover:bg-transparent md:border-0 md:hover:text-biru md:p-0"
+                href="/Quiz"
+                class="block bg-merahtua py-2 pl-3 pr-4 text-krim rounded md:hover:bg-transparent md:border-0 md:hover:text-biru md:p-0 transition duration-0 hover:duration-300"
               >
                 Diagnosa
               </a>
