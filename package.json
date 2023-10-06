@@ -12,9 +12,13 @@
   "dependencies": {
     "flowbite": "^1.8.1",
     "flowbite-react": "^0.6.4",
+    "framer-motion": "^10.16.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.16.0"
+    "react-router-dom": "^6.16.0",
+    "react-spring": "^9.7.3",
+    "react-transition-group": "^4.4.5",
+    "react-type-animation": "^3.1.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
