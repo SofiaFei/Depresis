@@ -1,15 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { heroImg } from "../../assets";
 import { BsCheckAll } from "react-icons/bs";
 import { AiOutlineQuestionCircle } from "react-icons/ai";
 import TypeWriter from "./TypeWriter";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import { Link } from "react-router-dom";
 
 const Home = () => {
-  useEffect(() => {
-    AOS.init();
-  }, [])
   return (
     <div>
       <section
@@ -23,12 +19,12 @@ const Home = () => {
               <TypeWriter text="Sistem Pakar Diagnosa Tingkat Depresi Mahasiswa Tingkat Akhir" delay={50} />
             </h2>
             <div className="flex justify-start">
-              <a
-                href="/Quiz"
+              <Link
+                to="/Quiz"
                 className="text-white font-semibold bg-biru scrollto rounded-full px-8 py-2 hover:text-blue-950 transition duration-300 hover:duration-500 ease-in-out"
               >
                 Cek Tingkat Depresimu Sekarang
-              </a>
+              </Link>
             </div>
           </div>
         </div>

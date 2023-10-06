@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -41,21 +42,18 @@ const Navbar = () => {
         <div class="hidden w-full md:block md:w-auto" id="navbar-default">
           <ul class="font-jost flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-merahtua dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
             <li>
-              <a
-                href="/"
-                class="block bg-merahtua py-2 pl-3 pr-4 text-krim rounded md:bg-transparent md:hover:text-biru md:p-0 transition duration-0 hover:duration-300"
-                aria-current="page"
-              >
+              <Link to="/" className="block bg-merahtua py-2 pl-3 pr-4 text-krim rounded md:bg-transparent md:hover:text-biru md:p-0 transition duration-0 hover:duration-300"
+                aria-current="page">
+              
                 Home
-              </a>
+                </Link>
             </li>
             <li>
-              <a
-                href="/Quiz"
-                class="block bg-merahtua py-2 pl-3 pr-4 text-krim rounded md:hover:bg-transparent md:border-0 md:hover:text-biru md:p-0 transition duration-0 hover:duration-300"
-              >
+            <Link to="/Quiz" className="block bg-merahtua py-2 pl-3 pr-4 text-krim rounded md:bg-transparent md:hover:text-biru md:p-0 transition duration-0 hover:duration-300"
+                aria-current="page">
+              
                 Diagnosa
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
